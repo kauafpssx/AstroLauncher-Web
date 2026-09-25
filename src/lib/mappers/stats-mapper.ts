@@ -22,10 +22,6 @@ export function countDownloads(releases: GithubReleaseDTO[]): number {
     .reduce((total, asset) => total + asset.download_count, 0)
 }
 
-export function countHumans(contributors: GithubContributorDTO[]): number {
-  return contributors.filter((c) => !c.login.endsWith('[bot]')).length
-}
-
 // Soma do último ano (o repo é mais novo que isso); sem estatística, usa contribuições.
 export function countCommits(
   activity: GithubCommitActivityDTO[],

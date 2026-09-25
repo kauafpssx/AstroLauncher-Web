@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
+import { loadContributors } from '@/features/contribute/lib/load-contributors'
 import { StatsAPI } from '@/features/stats/services/stats.api'
 import {
   countCommits,
   countDownloads,
-  countHumans,
   toActivity,
   toWeeklyCommits,
 } from '@/lib/mappers/stats-mapper'
@@ -15,19 +15,22 @@ function valueOr<T>(result: PromiseSettledResult<T>, fallback: T): T {
 
 // allSettled: cada número falha sozinho (rate limit/202) sem derrubar os outros.
 async function loadStats(): Promise<ProjectStats> {
-  const [releasesRes, contributorsRes, activityRes] = await Promise.allSettled([
-    StatsAPI.releases(),
-    StatsAPI.contributors(),
-    StatsAPI.commitActivity(),
-  ])
+  const [releasesRes, contributorsRes, activityRes, listRes] =
+    await Promise.allSettled([
+      StatsAPI.releases(),
+      StatsAPI.contributors(),
+      StatsAPI.commitActivity(),
+      loadContributors(),
+    ])
   const releases = valueOr(releasesRes, null)
   const contributors = valueOr(contributorsRes, null)
   const activity = toActivity(valueOr(activityRes, null))
+  const list = valueOr(listRes, null)
   return {
     commits: countCommits(activity, contributors ?? []),
     releases: releases?.length ?? null,
     downloads: releases ? countDownloads(releases) : null,
-    contributors: contributors ? countHumans(contributors) : null,
+    contributors: list?.length ?? null,
     weekly: toWeeklyCommits(activity),
   }
 }

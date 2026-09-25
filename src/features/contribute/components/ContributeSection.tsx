@@ -5,7 +5,11 @@ import { Accordion } from '@/components/common/Accordion'
 import { CountUp } from '@/components/common/CountUp'
 import { Section } from '@/components/common/Section'
 import { Button } from '@/components/ui/button'
-import { CONTRIBUTE_HEADING, CONTRIBUTORS_LABEL } from '@/data/contribute'
+import {
+  CONTRIBUTE_HEADING,
+  CONTRIBUTOR_BADGES,
+  CONTRIBUTORS_LABEL,
+} from '@/data/contribute'
 import { FAQ_ITEMS } from '@/data/faq'
 import { useContributors } from '@/features/contribute/hooks/useContributors'
 import type { Contributor } from '@/lib/mappers/contributor-mapper'
@@ -26,6 +30,7 @@ function formatCommits(n: number): string {
 }
 
 function ContributorCard({ contributor }: { contributor: Contributor }) {
+  const badge = CONTRIBUTOR_BADGES[contributor.kind]
   return (
     <motion.li
       variants={ITEM_VARIANTS}
@@ -46,9 +51,19 @@ function ContributorCard({ contributor }: { contributor: Contributor }) {
           className="border-border bg-surface size-15 rounded-full border-2 object-cover"
         />
       </a>
-      <AnimatedLink href={contributor.profileUrl} external>
-        {contributor.login}
-      </AnimatedLink>
+      <span className="max-w-full min-w-0">
+        <AnimatedLink href={contributor.profileUrl} external>
+          <span className="[overflow-wrap:anywhere]">{contributor.name}</span>
+        </AnimatedLink>
+      </span>
+      {/* Faixa do badge sempre reservada: todo card fica com a mesma altura. */}
+      <span className="flex h-4 items-center justify-center">
+        {badge && (
+          <span className="border-border text-muted-foreground rounded-sm border px-1.5 py-0.5 text-[10px] leading-none font-semibold">
+            {badge}
+          </span>
+        )}
+      </span>
       <p className="text-muted-foreground text-xs">
         <CountUp value={contributor.contributions} format={formatCommits} />
       </p>

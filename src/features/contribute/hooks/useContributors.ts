@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ContributorsAPI } from '@/features/contribute/services/contributors.api'
-import {
-  toContributors,
-  type Contributor,
-} from '@/lib/mappers/contributor-mapper'
+import { loadContributors } from '@/features/contribute/lib/load-contributors'
+import type { Contributor } from '@/lib/mappers/contributor-mapper'
 
 export function useContributors() {
   const [data, setData] = useState<Contributor[]>([])
@@ -12,9 +9,9 @@ export function useContributors() {
 
   useEffect(() => {
     let cancelled = false
-    ContributorsAPI.list()
-      .then((dtos) => {
-        if (!cancelled) setData(toContributors(dtos))
+    loadContributors()
+      .then((list) => {
+        if (!cancelled) setData(list)
       })
       .catch((err: unknown) => {
         if (!cancelled)

@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils'
 
 function useActiveSection(ids: string[]) {
   const [active, setActive] = useState(ids[0])
+  const [atEnd, setAtEnd] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,7 +23,19 @@ function useActiveSection(ids: string[]) {
     return () => observer.disconnect()
   }, [ids])
 
-  return active
+  // A última seção é curta e nunca cruza o meio da tela: no fim da página, força ela.
+  useEffect(() => {
+    const onScroll = () =>
+      setAtEnd(
+        window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 2,
+      )
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return atEnd ? ids[ids.length - 1] : active
 }
 
 const SECTION_IDS = NAV_SECTIONS.map((section) => section.id)

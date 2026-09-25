@@ -1,3 +1,5 @@
+import type { ContributorKind } from '@/lib/mappers/contributor-mapper'
+
 export const CONTRIBUTE_HEADING = {
   title: 'Comunidade',
   description:
@@ -5,3 +7,10 @@ export const CONTRIBUTE_HEADING = {
 }
 
 export const CONTRIBUTORS_LABEL = 'Contribuidores'
+
+// Badge ao lado do nome no card; humano não tem badge.
+export const CONTRIBUTOR_BADGES = {
+  human: null,
+  bot: 'bot',
+  ai: 'IA',
+} satisfies Record<ContributorKind, string | null>
