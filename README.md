@@ -53,20 +53,19 @@ Tudo que muda com o tempo vem **ao vivo da API do GitHub**: versão atual, insta
 
 ## 🧭 Seções do site
 
-|     | Seção                   | Descrição                                                                                                      |
-| --- | ----------------------- | -------------------------------------------------------------------------------------------------------------- |
-| 🪐  | **Hero**                | Logo, versão atual, botão **Baixar para o seu sistema** com menu de plataformas (Windows, macOS e Linux)       |
-| ✨  | **Destaques**           | 15 funcionalidades principais do launcher, direto do README do AstroLauncher                                   |
-| ⚖️  | **Comparativo**         | RAM com o launcher parado, tabela de recursos contra Prism, Modrinth, CurseForge, launcher oficial e TLauncher |
-| 🔓  | **Código aberto**       | Por que código auditável importa, com fontes citadas                                                           |
-| 🕰️  | **~40 dias vs 13 anos** | Linha do tempo arrastável com todas as releases, da v0.1.0 à mais recente                                      |
-| 🦀  | **Stack**               | Tauri, React, Rust, SQLite, Cubiomes e shadcn/ui, mais a distribuição de linguagens do repositório             |
-| 📊  | **Números**             | Commits, releases, downloads e contribuidores, com gráfico de commits por semana                               |
-| 🤝  | **Contribua**           | Cards dos contribuidores e acesso ao guia de contribuição                                                      |
-| 📄  | **Guia e Licença**      | Páginas internas que renderizam o `CONTRIBUTING.md` e a licença do launcher, com setinha para voltar           |
+|     | Seção              | Descrição                                                                                                        |
+| --- | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| 🪐  | **Início**         | Logo, versão atual, botão **Baixar para o seu sistema** com menu de plataformas e os números do projeto contando |
+| ✨  | **Recursos**       | Galeria com prints reais do launcher e as 15 funcionalidades principais                                          |
+| ⚖️  | **Comparativo**    | RAM, tabela de recursos contra 5 launchers, por que código aberto importa e a linha do tempo das releases        |
+| 🦀  | **Stack**          | Tauri, React, Rust, SQLite, Cubiomes e shadcn/ui, mais a distribuição de linguagens do repositório               |
+| 🤝  | **Comunidade**     | Perguntas frequentes, contribuidores e acesso ao guia de contribuição                                            |
+| 📰  | **Novidades**      | Página interna com as notas de cada release em abas e o gráfico de commits por semana                            |
+| 📄  | **Guia e Licença** | Páginas internas que renderizam o `CONTRIBUTING.md` e a licença do launcher                                      |
 
 ### 💡 Detalhes que fazem diferença
 
+- **Navegador lateral:** pontos fixos à direita mostram a seção atual e levam a cada uma com um clique.
 - **Download inteligente:** detecta o sistema pelo navegador e oferece o instalador certo; os outros ficam num menu com abas e o seu sistema marcado.
 - **Tudo em PT-BR**, tema escuro fixo, igual ao launcher.
 - **Animações discretas** com framer-motion, respeitando quem ativou _reduzir movimento_ no sistema.
@@ -165,7 +164,8 @@ AstroLauncher-Web/
 │   │   ├── comparison/         #   RAM, tabela de recursos, linha do tempo
 │   │   ├── stack/              #   stack + linguagens do repositório
 │   │   ├── stats/              #   números e gráfico de commits
-│   │   ├── contribute/         #   contribuidores
+│   │   ├── contribute/         #   comunidade: FAQ e contribuidores
+│   │   ├── news/               #   página de novidades (notas das releases)
 │   │   └── docs/               #   páginas de guia e licença
 │   ├── lib/
 │   │   ├── api/                #   githubGet / githubRaw com cache

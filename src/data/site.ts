@@ -42,6 +42,7 @@ export const footerColumns: FooterColumn[] = [
     title: 'Projeto',
     links: [
       { label: 'Repositório', href: REPO_URL, external: true },
+      { label: 'Novidades', href: ROUTES.news },
       { label: 'Releases', href: `${REPO_URL}/releases`, external: true },
       { label: 'Reportar bug', href: `${REPO_URL}/issues`, external: true },
       { label: 'Guia de contribuição', href: ROUTES.contributing },

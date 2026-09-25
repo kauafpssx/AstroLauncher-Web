@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import { AnimatedLink } from '@/components/common/AnimatedLink'
+import { Accordion } from '@/components/common/Accordion'
 import { CountUp } from '@/components/common/CountUp'
 import { Section } from '@/components/common/Section'
 import { Button } from '@/components/ui/button'
 import { CONTRIBUTE_HEADING, CONTRIBUTORS_LABEL } from '@/data/contribute'
+import { FAQ_ITEMS } from '@/data/faq'
 import { useContributors } from '@/features/contribute/hooks/useContributors'
 import type { Contributor } from '@/lib/mappers/contributor-mapper'
 import { formatNumber } from '@/lib/format'
@@ -81,10 +83,11 @@ export function ContributeSection() {
 
   return (
     <Section
-      id="contribute"
+      id="comunidade"
       title={CONTRIBUTE_HEADING.title}
       description={CONTRIBUTE_HEADING.description}
     >
+      <Accordion items={FAQ_ITEMS} className="mb-10 max-w-3xl" />
       {contributors.length > 0 ? (
         <ContributorList contributors={contributors} />
       ) : null}

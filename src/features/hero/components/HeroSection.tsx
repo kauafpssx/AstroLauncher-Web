@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Container } from '@/components/common/Container'
 import { HeroBadges } from '@/features/hero/components/HeroBadges'
+import { HeroStats } from '@/features/hero/components/HeroStats'
 import { HeroDownload } from '@/features/hero/components/HeroDownload'
 import { GithubIcon } from '@/components/common/BrandIcons'
 import { useLatestRelease } from '@/features/hero/hooks/useLatestRelease'
@@ -11,7 +12,10 @@ export function HeroSection() {
   const { data: release } = useLatestRelease()
 
   return (
-    <header className="border-border flex min-h-dvh items-center border-b py-24">
+    <header
+      id="inicio"
+      className="border-border flex min-h-dvh items-center border-b py-24"
+    >
       <Container className="flex flex-col items-start">
         <img
           src={hero.logo.src}
@@ -46,6 +50,7 @@ export function HeroSection() {
             {hero.githubCta.label}
           </Button>
         </div>
+        <HeroStats />
       </Container>
     </header>
   )

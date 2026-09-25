@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { TIMELINE_TITLE } from '@/data/comparison'
 import { TimelineMilestone } from '@/features/comparison/components/TimelineMilestone'
-import { useDragScroll } from '@/features/comparison/hooks/useDragScroll'
+import { useDragScroll } from '@/hooks/useDragScroll'
 import { cn } from '@/lib/utils'
 import type { ReleaseMilestone } from '@/types/comparison'
 
@@ -19,7 +19,7 @@ const LIST_VARIANTS = {
 }
 
 export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
-  const { ref, isDragging, handlers } = useDragScroll()
+  const { ref, isDragging, handlers } = useDragScroll({ startAtEnd: true })
   const reduceMotion = useReducedMotion()
   if (releases.length === 0) return null
   return (

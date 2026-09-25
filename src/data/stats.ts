@@ -1,7 +1,4 @@
-export const statsSection = {
-  id: 'numeros',
-  title: 'Números do projeto',
-  description: 'Atividade real, puxada direto da API do GitHub.',
+export const statsCopy = {
   labels: {
     commits: 'Commits',
     releases: 'Releases',

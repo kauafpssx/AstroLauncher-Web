@@ -1,11 +1,14 @@
 import { useSyncExternalStore } from 'react'
 
 // Páginas internas usam '#/rota'; qualquer outro hash (âncoras como
-// #comparativo) continua sendo a página inicial. Sem lib de rotas: são 2 páginas.
+// #comparativo) continua sendo a página inicial. Sem lib de rotas: são poucas
+// páginas. '#/algo' desconhecido vira notFound.
 export const ROUTES = {
   home: '#/',
   contributing: '#/contribuir',
   license: '#/licenca',
+  news: '#/novidades',
+  notFound: '#/404',
 } as const
 
 export type Route = (typeof ROUTES)[keyof typeof ROUTES]
@@ -20,7 +23,10 @@ function currentRoute(): Route {
   const match = Object.values(ROUTES).find(
     (r) => r !== ROUTES.home && r === hash,
   )
-  return match ?? ROUTES.home
+  if (match) return match
+  return hash.startsWith('#/') && hash !== ROUTES.home
+    ? ROUTES.notFound
+    : ROUTES.home
 }
 
 export function useHashRoute(): Route {

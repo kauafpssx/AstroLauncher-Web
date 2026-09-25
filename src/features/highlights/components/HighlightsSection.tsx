@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Section } from '@/components/common/Section'
+import { Gallery } from '@/features/highlights/components/Gallery'
 import { HighlightCard } from '@/features/highlights/components/HighlightCard'
 import { highlights, highlightsSection } from '@/data/highlights'
 
@@ -14,6 +15,7 @@ export function HighlightsSection() {
       title={highlightsSection.title}
       description={highlightsSection.description}
     >
+      <Gallery />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10">
         {highlights.map((item, i) => (
           <motion.div

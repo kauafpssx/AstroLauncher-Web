@@ -1,12 +1,12 @@
 import { useCallback, useRef, useState } from 'react'
-import type { PointerEvent } from 'react'
+import type { MouseEvent, PointerEvent } from 'react'
 
 // Abaixo disso é clique, não arrasto (não muda o cursor)
 const DRAG_THRESHOLD = 4
 
 // Arrastar com o mouse altera scrollLeft; touch e teclado ficam com o scroll nativo.
 // O flag vive num ref: state só atualiza no próximo render e perderia os primeiros moves.
-export function useDragScroll() {
+export function useDragScroll({ startAtEnd = false } = {}) {
   const drag = useRef({
     active: false,
     moved: false,
@@ -15,10 +15,16 @@ export function useDragScroll() {
   })
   const [isDragging, setIsDragging] = useState(false)
 
-  // Callback ref estável: roda só na montagem e começa no fim (release mais recente)
-  const ref = useCallback((el: HTMLElement | null) => {
-    if (el) el.scrollLeft = el.scrollWidth
-  }, [])
+  const scrollerRef = useRef<HTMLDivElement | null>(null)
+
+  // Callback ref estável: roda só na montagem; startAtEnd começa rolado até o fim
+  const ref = useCallback(
+    (el: HTMLDivElement | null) => {
+      scrollerRef.current = el
+      if (el && startAtEnd) el.scrollLeft = el.scrollWidth
+    },
+    [startAtEnd],
+  )
 
   const onPointerDown = (e: PointerEvent<HTMLElement>) => {
     if (e.pointerType !== 'mouse' || e.button !== 0) return
@@ -54,14 +60,24 @@ export function useDragScroll() {
     setIsDragging(false)
   }
 
+  // Soltar o mouse depois de arrastar não pode virar clique num item da faixa
+  const onClickCapture = (e: MouseEvent<HTMLElement>) => {
+    if (!drag.current.moved) return
+    drag.current.moved = false
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
   return {
     ref,
+    scrollerRef,
     isDragging,
     handlers: {
       onPointerDown,
       onPointerMove,
       onPointerUp: stop,
       onPointerCancel: stop,
+      onClickCapture,
     },
   }
 }

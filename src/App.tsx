@@ -1,11 +1,11 @@
 import { lazy, Suspense, useEffect, useRef } from 'react'
 import { GridBackground } from '@/components/layout/GridBackground'
+import { SectionNav } from '@/components/layout/SectionNav'
 import { Footer } from '@/components/layout/Footer'
 import { HeroSection } from '@/features/hero/components/HeroSection'
 import { HighlightsSection } from '@/features/highlights/components/HighlightsSection'
 import { ComparisonSection } from '@/features/comparison/components/ComparisonSection'
 import { StackSection } from '@/features/stack/components/StackSection'
-import { StatsSection } from '@/features/stats/components/StatsSection'
 import { ContributeSection } from '@/features/contribute/components/ContributeSection'
 import { ROUTES, useHashRoute, type Route } from '@/lib/hash-route'
 
@@ -20,6 +20,16 @@ const LicensePage = lazy(() =>
     default: m.LicensePage,
   })),
 )
+const NewsPage = lazy(() =>
+  import('@/features/news/pages/NewsPage').then((m) => ({
+    default: m.NewsPage,
+  })),
+)
+const NotFoundPage = lazy(() =>
+  import('@/features/not-found/pages/NotFoundPage').then((m) => ({
+    default: m.NotFoundPage,
+  })),
+)
 
 function HomePage() {
   return (
@@ -28,8 +38,8 @@ function HomePage() {
       <HighlightsSection />
       <ComparisonSection />
       <StackSection />
-      <StatsSection />
       <ContributeSection />
+      <SectionNav />
     </>
   )
 }
@@ -37,6 +47,8 @@ function HomePage() {
 function CurrentPage({ route }: { route: Route }) {
   if (route === ROUTES.contributing) return <ContributingPage />
   if (route === ROUTES.license) return <LicensePage />
+  if (route === ROUTES.news) return <NewsPage />
+  if (route === ROUTES.notFound) return <NotFoundPage />
   return <HomePage />
 }
 
