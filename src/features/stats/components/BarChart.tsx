@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { ChartBar } from '@/features/stats/components/ChartBar'
 import type { ChartPoint } from '@/types/stats'
 
@@ -13,15 +14,20 @@ const AXIS = 32
 const TOP = 20
 const LABEL = 'fill-muted-foreground text-[11px]'
 
+// Barras crescem em stagger ao entrar na viewport (variants propagam pro ChartBar).
 // SVG puro: tooltip via group-hover do Tailwind, <title> para leitores de tela.
 export function BarChart({ data, unit, className }: BarChartProps) {
   const max = Math.max(1, ...data.map((d) => d.value))
   const width = AXIS + data.length * SLOT
   const y = (value: number) => HEIGHT - (value / max) * (HEIGHT - TOP)
   const edges = [data[0], data[data.length - 1]]
+  const reduce = useReducedMotion()
 
   return (
-    <svg
+    <motion.svg
+      initial={reduce ? false : 'hidden'}
+      whileInView="visible"
+      viewport={{ once: true, margin: '0px 0px -60px 0px' }}
       viewBox={`0 0 ${width} ${HEIGHT + 24}`}
       className={className}
       role="img"
@@ -43,6 +49,7 @@ export function BarChart({ data, unit, className }: BarChartProps) {
         <ChartBar
           key={point.label}
           point={point}
+          index={i}
           unit={unit}
           cx={AXIS + i * SLOT + SLOT / 2}
           top={y(point.value)}
@@ -62,6 +69,6 @@ export function BarChart({ data, unit, className }: BarChartProps) {
           {point?.label}
         </text>
       ))}
-    </svg>
+    </motion.svg>
   )
 }

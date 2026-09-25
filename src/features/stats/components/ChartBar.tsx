@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { formatNumber } from '@/lib/format'
 import type { ChartPoint } from '@/types/stats'
 
 interface ChartBarProps {
   point: ChartPoint
+  index: number
   unit: string
   cx: number
   top: number
@@ -13,9 +16,18 @@ interface ChartBarProps {
 
 const BAR = 8
 
+const grow: Variants = {
+  hidden: { scaleY: 0 },
+  visible: (i: number) => ({
+    scaleY: 1,
+    transition: { delay: i * 0.03, duration: 0.5, ease: 'easeOut' },
+  }),
+}
+
 // Área de hover ocupa a coluna inteira; tooltip sobe 4px ao aparecer.
 export function ChartBar({
   point,
+  index,
   unit,
   cx,
   top,
@@ -33,7 +45,10 @@ export function ChartBar({
         height={bottom - hitTop}
         fill="transparent"
       />
-      <rect
+      <motion.rect
+        variants={grow}
+        custom={index}
+        style={{ originY: 1 }}
         x={cx - BAR / 2}
         y={top}
         width={BAR}

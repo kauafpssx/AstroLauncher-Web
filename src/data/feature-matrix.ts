@@ -41,7 +41,7 @@ export const FEATURE_MATRIX: FeatureMatrixRow[] = [
       official: 'no',
       tlauncher: 'partial',
     },
-    note: 'Forge, Fabric e NeoForge documentados; Quilt sem confirmação oficial.',
+    note: 'TLauncher: Forge, Fabric e NeoForge documentados; Quilt sem confirmação oficial.',
   },
   {
     label: 'LiteLoader',
@@ -64,7 +64,7 @@ export const FEATURE_MATRIX: FeatureMatrixRow[] = [
       official: 'partial',
       tlauncher: 'partial',
     },
-    note: 'Site oficial anuncia "from Alpha to Snapshots"; classic/infdev sem confirmação.',
+    note: 'TLauncher: site oficial anuncia "from Alpha to Snapshots"; classic/infdev sem confirmação.',
   },
   {
     label: 'Mods do Modrinth + CurseForge juntos',
@@ -76,7 +76,7 @@ export const FEATURE_MATRIX: FeatureMatrixRow[] = [
       official: 'no',
       tlauncher: 'no',
     },
-    note: 'Usa o sistema próprio TLMods, sem integração nativa.',
+    note: 'TLauncher: usa o sistema próprio TLMods, sem integração nativa.',
   },
   {
     label: 'Contas offline sem conta Microsoft',

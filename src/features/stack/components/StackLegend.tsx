@@ -1,4 +1,8 @@
+import { CountUp } from '@/components/common/CountUp'
 import type { LanguageShare } from '@/types/stack'
+
+const formatPercent = (n: number) =>
+  `${n.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })}%`
 
 export function StackLegend({ items }: { items: LanguageShare[] }) {
   return (
@@ -11,9 +15,11 @@ export function StackLegend({ items }: { items: LanguageShare[] }) {
             aria-hidden
           />
           <span className="text-foreground font-medium">{item.label}</span>
-          <span className="text-muted-foreground tabular-nums">
-            {item.percent.toLocaleString('pt-BR')}%
-          </span>
+          <CountUp
+            value={item.percent}
+            format={formatPercent}
+            className="text-muted-foreground"
+          />
         </li>
       ))}
     </ul>

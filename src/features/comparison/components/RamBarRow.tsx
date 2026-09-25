@@ -1,6 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { CountUp } from '@/components/common/CountUp'
 import { cn } from '@/lib/utils'
 import type { RamBarItem } from '@/types/comparison'
+
+const formatMegabytes = (n: number) => `${Math.round(n)} MB`
 
 interface RamBarRowProps {
   item: RamBarItem
@@ -21,7 +24,15 @@ export function RamBarRow({ item, percent }: RamBarRowProps) {
         )}
       >
         <span>{item.name}</span>
-        <span>{item.label}</span>
+        {item.highlight ? (
+          <CountUp
+            value={item.megabytes}
+            format={formatMegabytes}
+            duration={1}
+          />
+        ) : (
+          <span>{item.label}</span>
+        )}
       </div>
       <div className="bg-surface-hover border-border h-2 overflow-hidden rounded-[4px] border">
         <motion.div

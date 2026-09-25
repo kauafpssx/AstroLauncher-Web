@@ -3,9 +3,9 @@ import type { Highlight } from '@/types/highlights'
 
 export function HighlightCard({ icon: Icon, title, description }: Highlight) {
   return (
-    <Card hoverable className="h-full">
+    <Card hoverable className="group hover:border-accent/60 h-full">
       <Icon
-        className="text-accent mb-5 size-7"
+        className="text-accent ease-ui mb-5 size-7 transition-[translate,rotate,filter] duration-300 group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:drop-shadow-[0_0_8px_var(--accent-glow)] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0 motion-reduce:group-hover:rotate-0"
         strokeWidth={1.75}
         aria-hidden
       />
