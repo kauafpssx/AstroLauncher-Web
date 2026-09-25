@@ -18,7 +18,7 @@ export function GalleryThumbs({
   return (
     <div
       role="tablist"
-      className="mt-5 grid grid-cols-3 gap-3 min-[769px]:grid-cols-6"
+      className="mt-5 grid grid-cols-3 items-start gap-3 min-[769px]:grid-cols-6"
     >
       {shots.map((shot, i) => {
         const isActive = i === active
@@ -49,14 +49,15 @@ export function GalleryThumbs({
                 loading="lazy"
                 width={1920}
                 height={1042}
-                className="aspect-[1920/1042] w-full rounded-md object-cover object-top"
+                className="aspect-video w-full rounded-md object-cover object-top"
               />
             </div>
-            <div className="mt-2 h-0.5">
+            <div className="mt-1 h-0.5 min-[769px]:mt-2">
               {isActive && autoplay && <GalleryProgress {...autoplay} />}
             </div>
-            <span className="text-muted-foreground group-aria-selected:text-foreground mt-2 block text-[13px] font-medium">
-              {shot.label}
+            <span className="text-muted-foreground group-aria-selected:text-foreground mt-1.5 block truncate text-[13px] font-medium min-[769px]:mt-2">
+              <span className="min-[769px]:hidden">{shot.short}</span>
+              <span className="max-[768px]:hidden">{shot.label}</span>
             </span>
           </button>
         )

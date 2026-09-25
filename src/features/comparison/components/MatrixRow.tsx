@@ -28,7 +28,7 @@ export function MatrixRow({ row }: { row: FeatureMatrixRow }) {
       variants={ROW_VARIANTS}
       initial={reduceMotion ? false : 'hidden'}
       whileInView="show"
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: '0px 0px -40px 0px' }}
     >
       <th
         scope="row"

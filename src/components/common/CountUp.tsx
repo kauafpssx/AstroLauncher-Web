@@ -25,7 +25,9 @@ export function CountUp({
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
+  // Margem só embaixo: com margem lateral, números estreitos colados na borda
+  // (coluna esquerda no celular) nunca contam como visíveis e ficam em 0.
+  const inView = useInView(ref, { once: true, margin: '0px 0px -60px 0px' })
   const reduced = useReducedMotion()
   const motionValue = useMotionValue(reduced ? value : 0)
 

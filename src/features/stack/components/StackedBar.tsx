@@ -21,7 +21,7 @@ export function StackedBar({ segments }: { segments: LanguageShare[] }) {
             }}
             initial={reduceMotion ? false : { width: 0 }}
             whileInView={{ width }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: '0px 0px -60px 0px' }}
             transition={{ duration: 1.2, ease: 'easeOut' }}
           />
         )

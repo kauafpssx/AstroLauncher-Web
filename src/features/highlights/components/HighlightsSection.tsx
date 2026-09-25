@@ -16,7 +16,7 @@ export function HighlightsSection() {
       description={highlightsSection.description}
     >
       <Gallery />
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-10">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(300px,100%),1fr))] gap-4 md:gap-10">
         {highlights.map((item, i) => (
           <motion.div
             key={item.title}

@@ -12,7 +12,7 @@ export function StackSection() {
       title={STACK_HEADING.title}
       description={STACK_HEADING.description}
     >
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 md:gap-10 lg:grid-cols-3">
         {STACK_ITEMS.map((item) => (
           <StackCard key={item.name} item={item} />
         ))}

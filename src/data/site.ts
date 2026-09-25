@@ -34,8 +34,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Recursos', href: '#recursos' },
       { label: 'Comparativo', href: '#comparativo' },
       { label: 'Stack', href: '#stack' },
-      { label: 'Números', href: '#numeros' },
-      { label: 'Contribua', href: '#contribute' },
+      { label: 'Comunidade', href: '#comunidade' },
     ],
   },
   {

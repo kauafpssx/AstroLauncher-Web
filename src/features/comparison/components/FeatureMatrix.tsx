@@ -4,9 +4,10 @@ import { FEATURE_MATRIX } from '@/data/feature-matrix'
 import { MatrixHeader } from '@/features/comparison/components/MatrixHeader'
 import { MatrixRow } from '@/features/comparison/components/MatrixRow'
 
+// Só do md pra cima: no celular a tabela de 6 colunas não cabe
 export function FeatureMatrix() {
   return (
-    <Card hoverable accentTop className="overflow-hidden">
+    <Card hoverable accentTop className="hidden overflow-hidden md:block">
       <h3 className="mb-6 font-serif text-2xl">{MATRIX_TITLE}</h3>
       <div className="-mx-2 overflow-x-auto px-2">
         <table className="w-full min-w-[680px] border-collapse text-sm">

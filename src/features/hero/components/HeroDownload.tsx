@@ -4,6 +4,7 @@ import { Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DownloadLabel } from '@/features/hero/components/DownloadLabel'
 import { DownloadList } from '@/features/hero/components/DownloadList'
+import { MobileDownload } from '@/features/hero/components/MobileDownload'
 import { MenuTrigger } from '@/features/hero/components/MenuTrigger'
 import { useDownloadFeedback } from '@/features/hero/hooks/useDownloadFeedback'
 import { useDropdown } from '@/features/hero/hooks/useDropdown'
@@ -28,6 +29,9 @@ export function HeroDownload({ release }: HeroDownloadProps) {
   const listId = useId()
   const { phase, start } = useDownloadFeedback()
   const downloads = release?.downloads ?? []
+  const os = detectOs()
+  // Launcher é só para computador: no celular, nada de download direto.
+  if (os === 'mobile') return <MobileDownload downloads={downloads} />
   if (downloads.length === 0) {
     return (
       <Button
@@ -42,7 +46,7 @@ export function HeroDownload({ release }: HeroDownloadProps) {
     )
   }
 
-  const current = pickDownload(downloads, detectOs())
+  const current = pickDownload(downloads, os)
   return (
     <div ref={rootRef} className="relative">
       <div className="ease-ui inline-flex transition-transform duration-250 hover:-translate-y-[3px]">

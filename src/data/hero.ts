@@ -26,6 +26,13 @@ export const hero = {
     yourSystem: 'Seu sistema',
     downloadStarted: 'Download iniciado',
     osNames: { windows: 'Windows', macos: 'macOS', linux: 'Linux' },
+    mobile: {
+      unavailable: 'Somente para computador',
+      share: 'Enviar link para o PC',
+      shareTitle: 'AstroLauncher',
+      copied: 'Link copiado',
+      platforms: 'Disponível para Windows, macOS e Linux.',
+    },
   },
   githubCta: {
     label: 'Ver no GitHub',
