@@ -11,10 +11,8 @@ const KEY_STEP: Record<string, number> = { ArrowLeft: -1, ArrowRight: 1 }
 export function Gallery() {
   const reduce = useReducedMotion() ?? false
   const [hovered, setHovered] = useState(false)
-  const { index, setIndex, step } = useGallery(
-    gallery.length,
-    hovered || reduce,
-  )
+  const { index, setIndex, step, next } = useGallery(gallery.length)
+  const autoplay = reduce ? null : { paused: hovered, onComplete: next }
   const tabs = useRef<HTMLDivElement>(null)
   const shot = gallery[index]
 
@@ -37,8 +35,8 @@ export function Gallery() {
       onMouseLeave={() => setHovered(false)}
       onKeyDown={onKeyDown}
     >
-      <div className="border-border bg-surface overflow-hidden rounded-xl border shadow-[0_24px_80px_rgba(0,0,0,0.5)]">
-        <div className="border-border flex items-center gap-2 border-b px-4 py-3">
+      <div className="bg-surface-hover border-foreground/10 overflow-hidden rounded-xl border shadow-[0_24px_80px_rgba(0,0,0,0.5)]">
+        <div className="flex items-center gap-2 px-4 py-3">
           {[0, 1, 2].map((dot) => (
             <span key={dot} className="bg-foreground/15 size-3 rounded-full" />
           ))}
@@ -46,25 +44,32 @@ export function Gallery() {
             {galleryCopy.windowTitle} · {shot?.label}
           </span>
         </div>
-        <div className="relative aspect-[1920/1042]">
-          <AnimatePresence initial={false}>
-            <motion.img
-              key={shot?.src}
-              src={shot?.src}
-              alt={shot?.alt}
-              width={1920}
-              height={1042}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: reduce ? 0 : 0.6 }}
-              className="absolute inset-0 size-full object-cover object-top"
-            />
-          </AnimatePresence>
+        <div className="px-2 pb-2 md:px-3 md:pb-3">
+          <div className="border-border relative aspect-[1920/1042] overflow-hidden rounded-lg border">
+            <AnimatePresence initial={false}>
+              <motion.img
+                key={shot?.src}
+                src={shot?.src}
+                alt={shot?.alt}
+                width={1920}
+                height={1042}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduce ? 0 : 0.6 }}
+                className="absolute inset-0 size-full object-cover object-top"
+              />
+            </AnimatePresence>
+          </div>
         </div>
       </div>
       <div ref={tabs}>
-        <GalleryThumbs shots={gallery} active={index} onSelect={setIndex} />
+        <GalleryThumbs
+          shots={gallery}
+          active={index}
+          onSelect={setIndex}
+          autoplay={autoplay}
+        />
       </div>
     </div>
   )
