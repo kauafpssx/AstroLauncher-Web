@@ -16,9 +16,9 @@ export function HeroSection() {
         <img
           src={hero.logo.src}
           alt={hero.logo.alt}
-          width={120}
-          height={120}
-          className="glow-box bg-surface ease-ui mb-12 size-30 rounded-xl p-1.5 transition-transform duration-300 hover:scale-105"
+          width={144}
+          height={144}
+          className="ease-ui mb-12 size-36 transition-transform duration-300 hover:scale-105"
         />
         <HeroBadges release={release} />
         <h1 className="text-accent glow-text mb-6 font-serif text-[64px] leading-none font-bold tracking-[-0.01em] md:text-[120px]">

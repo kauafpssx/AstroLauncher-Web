@@ -42,6 +42,10 @@
 }
 
 @layer base {
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -52,10 +56,6 @@
 
 @utility glow-text {
   text-shadow: 0 0 25px var(--accent-glow);
-}
-
-@utility glow-box {
-  box-shadow: 0 0 45px var(--accent-glow);
 }
 
 @media (prefers-reduced-motion: reduce) {
