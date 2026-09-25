@@ -1,0 +1,43 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import type { RamBarItem } from '@/types/comparison'
+
+interface RamBarRowProps {
+  item: RamBarItem
+  percent: number
+}
+
+export function RamBarRow({ item, percent }: RamBarRowProps) {
+  const reduceMotion = useReducedMotion()
+  const width = `${percent}%`
+  return (
+    <li className="flex flex-col gap-2">
+      <div
+        className={cn(
+          'flex items-baseline justify-between gap-4 text-sm tabular-nums',
+          item.highlight
+            ? 'text-accent font-semibold'
+            : 'text-muted-foreground',
+        )}
+      >
+        <span>{item.name}</span>
+        <span>{item.label}</span>
+      </div>
+      <div className="bg-surface-hover border-border h-2 overflow-hidden rounded-[4px] border">
+        <motion.div
+          className={cn(
+            'h-full min-w-2 rounded-[4px]',
+            item.highlight
+              ? 'bg-accent shadow-[0_0_12px_var(--accent)]'
+              : 'bg-muted-foreground',
+          )}
+          initial={reduceMotion ? false : { width: 0 }}
+          whileInView={{ width }}
+          style={reduceMotion ? { width } : undefined}
+          viewport={{ once: true, margin: '0px 0px -60px 0px' }}
+          transition={{ duration: 1, ease: [0.1, 0.9, 0.2, 1] }}
+        />
+      </div>
+    </li>
+  )
+}
