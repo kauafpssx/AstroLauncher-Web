@@ -9,12 +9,43 @@ export const COMPARISON_HEADING = {
 export const RAM_TITLE = 'Memória RAM com o launcher parado'
 
 export const RAM_BARS: RamBarItem[] = [
-  { name: 'AstroLauncher', label: '30 MB', megabytes: 30, highlight: true },
-  { name: 'Prism Launcher', label: '~50–100 MB', megabytes: 75 },
-  { name: 'Modrinth App', label: '~50–150 MB', megabytes: 100 },
-  { name: 'ATLauncher', label: '~80–120 MB', megabytes: 100 },
-  { name: 'CurseForge App', label: '~200–300 MB', megabytes: 250 },
-  { name: 'TLauncher', label: '~250–450 MB', megabytes: 350 },
+  {
+    name: 'AstroLauncher',
+    label: '30 MB',
+    megabytes: 30,
+    highlight: true,
+    logo: '/logo.svg',
+  },
+  {
+    name: 'Prism Launcher',
+    label: '~50–100 MB',
+    megabytes: 75,
+    logo: '/prism.svg',
+  },
+  {
+    name: 'Modrinth App',
+    label: '~50–150 MB',
+    megabytes: 100,
+    logo: '/modrinth.svg',
+  },
+  {
+    name: 'ATLauncher',
+    label: '~80–120 MB',
+    megabytes: 100,
+    logo: '/atlauncher.svg',
+  },
+  {
+    name: 'CurseForge App',
+    label: '~200–300 MB',
+    megabytes: 250,
+    logo: '/curseforge.svg',
+  },
+  {
+    name: 'TLauncher',
+    label: '~250–450 MB',
+    megabytes: 350,
+    logo: '/tlauncher.png',
+  },
 ]
 
 export const RAM_FOOTNOTE =

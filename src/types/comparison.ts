@@ -5,6 +5,8 @@ export interface RamBarItem {
   // MB usados para a largura: medido ou ponto médio da faixa
   megabytes: number
   highlight?: boolean
+  // Caminho em /public; sem logo mostra só o nome
+  logo?: string
 }
 
 export interface ReleaseMilestone {

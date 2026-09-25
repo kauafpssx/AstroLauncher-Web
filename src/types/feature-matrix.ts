@@ -14,4 +14,5 @@ export interface FeatureMatrixRow {
 export interface LauncherColumn {
   id: LauncherId
   name: string
+  logo?: string
 }

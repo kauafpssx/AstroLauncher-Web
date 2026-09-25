@@ -1,12 +1,12 @@
 import type { FeatureMatrixRow, LauncherColumn } from '@/types/feature-matrix'
 
 export const LAUNCHER_COLUMNS: LauncherColumn[] = [
-  { id: 'astro', name: 'AstroLauncher' },
-  { id: 'prism', name: 'Prism' },
-  { id: 'modrinth', name: 'Modrinth' },
-  { id: 'curseforge', name: 'CurseForge' },
+  { id: 'astro', name: 'AstroLauncher', logo: '/logo.svg' },
+  { id: 'prism', name: 'Prism', logo: '/prism.svg' },
+  { id: 'modrinth', name: 'Modrinth', logo: '/modrinth.svg' },
+  { id: 'curseforge', name: 'CurseForge', logo: '/curseforge.svg' },
   { id: 'official', name: 'Oficial' },
-  { id: 'tlauncher', name: 'TLauncher' },
+  { id: 'tlauncher', name: 'TLauncher', logo: '/tlauncher.png' },
 ]
 
 // Matriz da nota Orquestração (bloco B do comparativo).

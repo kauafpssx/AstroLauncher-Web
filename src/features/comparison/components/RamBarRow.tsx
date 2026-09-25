@@ -17,13 +17,24 @@ export function RamBarRow({ item, percent }: RamBarRowProps) {
     <li className="flex flex-col gap-2">
       <div
         className={cn(
-          'flex items-baseline justify-between gap-4 text-sm tabular-nums',
+          'flex items-center justify-between gap-4 text-sm tabular-nums',
           item.highlight
             ? 'text-accent font-semibold'
             : 'text-muted-foreground',
         )}
       >
-        <span>{item.name}</span>
+        <span className="flex items-center gap-2">
+          {item.logo && (
+            <img
+              src={item.logo}
+              alt=""
+              width={18}
+              height={18}
+              className="size-[18px] shrink-0 object-contain"
+            />
+          )}
+          {item.name}
+        </span>
         {item.highlight ? (
           <CountUp
             value={item.megabytes}
