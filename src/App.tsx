@@ -44,12 +44,15 @@ export default function App() {
   const route = useHashRoute()
   const previousRoute = useRef(route)
 
-  // Só rola pro topo ao trocar de página: na 1ª carga o navegador precisa
-  // respeitar âncoras diretas como #comparativo.
+  // Só rola ao trocar de página: na 1ª carga o navegador já respeita âncoras
+  // diretas como #comparativo. Vindo de uma página interna por uma âncora da
+  // home (ex.: link do footer), a seção ainda não existia quando o hash mudou.
   useEffect(() => {
     if (previousRoute.current === route) return
     previousRoute.current = route
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    const anchor = document.getElementById(window.location.hash.slice(1))
+    if (anchor) anchor.scrollIntoView({ behavior: 'instant' })
+    else window.scrollTo({ top: 0, behavior: 'instant' })
   }, [route])
 
   return (
