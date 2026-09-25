@@ -44,9 +44,9 @@ export default function App() {
   const route = useHashRoute()
   const previousRoute = useRef(route)
 
-  // Só rola ao trocar de página: na 1ª carga o navegador já respeita âncoras
-  // diretas como #comparativo. Vindo de uma página interna por uma âncora da
-  // home (ex.: link do footer), a seção ainda não existia quando o hash mudou.
+  // Só rola ao trocar de página (a 1ª carga sempre começa no topo, ver main.tsx).
+  // Vindo de uma página interna por uma âncora da home (ex.: link do footer),
+  // a seção ainda não existia quando o hash mudou.
   useEffect(() => {
     if (previousRoute.current === route) return
     previousRoute.current = route
