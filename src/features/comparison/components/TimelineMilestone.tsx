@@ -6,14 +6,14 @@ import type { ReleaseMilestone } from '@/types/comparison'
 
 const MILESTONE_VARIANTS: Variants = {
   hidden: { opacity: 0, y: 8 },
-  show: { opacity: 1, y: 0 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.25 } },
 }
 
 // Pulso único do dot da release atual, depois que o marco aparece
 const LATEST_DOT_VARIANTS: Variants = {
   show: {
     scale: [1, 1.5, 1],
-    transition: { delay: 0.5, duration: 0.8, ease: 'easeInOut' },
+    transition: { delay: 0.2, duration: 0.8, ease: 'easeInOut' },
   },
 }
 
