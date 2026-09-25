@@ -5,7 +5,7 @@ export const LAUNCHER_COLUMNS: LauncherColumn[] = [
   { id: 'prism', name: 'Prism', logo: '/prism.svg' },
   { id: 'modrinth', name: 'Modrinth', logo: '/modrinth.svg' },
   { id: 'curseforge', name: 'CurseForge', logo: '/curseforge.svg' },
-  { id: 'official', name: 'Oficial' },
+  { id: 'official', name: 'Oficial', logo: '/minecraft-launcher.svg' },
   { id: 'tlauncher', name: 'TLauncher', logo: '/tlauncher.png' },
 ]
 
