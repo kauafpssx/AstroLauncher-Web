@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { MouseEvent } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { NAV_SECTIONS } from '@/data/navigation'
 import { cn } from '@/lib/utils'
 

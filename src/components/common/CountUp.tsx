@@ -1,10 +1,7 @@
 import { useEffect, useRef } from 'react'
-import {
-  animate,
-  useInView,
-  useMotionValue,
-  useReducedMotion,
-} from 'framer-motion'
+import { animate, useInView, useMotionValue } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { formatNumber } from '@/lib/format'
 import { cn } from '@/lib/utils'
 

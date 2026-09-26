@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import type { LanguageShare } from '@/types/stack'
 
 // Os segmentos crescem juntos a partir de 0, então a barra enche da esquerda

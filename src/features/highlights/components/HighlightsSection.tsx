@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { Section } from '@/components/common/Section'
 import { Gallery } from '@/features/highlights/components/Gallery'
 import { HighlightCard } from '@/features/highlights/components/HighlightCard'

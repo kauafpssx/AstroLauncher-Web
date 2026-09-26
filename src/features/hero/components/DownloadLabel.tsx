@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { Check, Download } from 'lucide-react'
 import { hero } from '@/data/hero'
 import { EASE_UI } from '@/features/hero/lib/motion'

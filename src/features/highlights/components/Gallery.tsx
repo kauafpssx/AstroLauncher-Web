@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react'
 import type * as React from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { GalleryThumbs } from '@/features/highlights/components/GalleryThumbs'
 import { useGallery } from '@/features/highlights/hooks/useGallery'
 import { gallery, galleryCopy } from '@/data/gallery'

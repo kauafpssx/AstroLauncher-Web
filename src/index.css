@@ -57,15 +57,3 @@
 @utility glow-text {
   text-shadow: 0 0 25px var(--accent-glow);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}

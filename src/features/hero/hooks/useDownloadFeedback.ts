@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 
 export type DownloadPhase = 'idle' | 'bouncing' | 'started'
 

@@ -1,5 +1,7 @@
 import type { KeyboardEvent } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import type { ComponentType } from 'react'
 import { hero } from '@/data/hero'
 import {

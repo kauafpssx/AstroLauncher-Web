@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { DownloadRow } from '@/features/hero/components/DownloadRow'
 import { useElementHeight } from '@/features/hero/hooks/useElementHeight'
 import { PlatformTabs } from '@/features/hero/components/PlatformTabs'

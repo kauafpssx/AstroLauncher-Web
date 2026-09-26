@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { ChartBar } from '@/features/stats/components/ChartBar'
 import type { ChartPoint } from '@/types/stats'
 

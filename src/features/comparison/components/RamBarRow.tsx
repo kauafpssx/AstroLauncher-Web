@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { CountUp } from '@/components/common/CountUp'
 import { cn } from '@/lib/utils'
 import type { RamBarItem } from '@/types/comparison'

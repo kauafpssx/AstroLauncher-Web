@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import type { KeyboardEvent, ReactNode } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { newsPage as copy } from '@/data/news'
 import { useDragScroll } from '@/hooks/useDragScroll'

@@ -34,7 +34,7 @@ function scrollToAnchor(event: React.MouseEvent, href: string) {
   const target = document.getElementById(decodeURIComponent(href.slice(1)))
   if (!target) return
   event.preventDefault()
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const reduced = false
   target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
 }
 function MarkdownLink({ href = '', children }: React.ComponentProps<'a'>) {

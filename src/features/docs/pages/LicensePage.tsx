@@ -21,7 +21,7 @@ export function LicensePage() {
     const link = (event.target as HTMLElement).closest('a')
     if (link?.href !== licenseHref || !fullTextRef.current) return
     event.preventDefault()
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const reduce = false
     fullTextRef.current.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
   }
 

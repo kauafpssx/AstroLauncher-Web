@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { TIMELINE_TITLE } from '@/data/comparison'
 import { TimelineMilestone } from '@/features/comparison/components/TimelineMilestone'
 import { useDragScroll } from '@/hooks/useDragScroll'

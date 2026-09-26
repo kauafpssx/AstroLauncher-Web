@@ -1,10 +1,7 @@
 import { useState } from 'react'
-import {
-  AnimatePresence,
-  motion,
-  useDragControls,
-  useReducedMotion,
-} from 'framer-motion'
+import { AnimatePresence, motion, useDragControls } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import type { PanInfo, Variants } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { ReleaseNav } from '@/features/news/components/ReleaseNav'

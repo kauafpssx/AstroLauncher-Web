@@ -1,4 +1,6 @@
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import type { Variants } from 'framer-motion'
 import { LAUNCHER_COLUMNS } from '@/data/feature-matrix'
 import { SupportIcon } from '@/features/comparison/components/SupportIcon'
